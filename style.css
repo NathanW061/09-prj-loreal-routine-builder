@@ -1,3 +1,8 @@
+:root {
+  --passionate-red: #ff003b;
+  --eternal-gold: #e3a535;
+}
+
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -211,6 +216,10 @@ body {
 .product-card p {
   font-size: 14px;
   color: #666;
+}
+
+.product-card.selected {
+  scale: 90%;
 }
 
 /* selected products */
