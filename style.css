@@ -1,7 +1,5 @@
-:root {
-  --passionate-red: #ff003b;
-  --eternal-gold: #e3a535;
-}
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add,close,remove');
+@import url('chat-window.css');
 
 /* —— basic reset —— */
 * {
@@ -175,6 +173,17 @@ body {
   color: #666666;
 }
 
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .add-item {
+    font-family: 'Material Symbols Outlined';
+  }
+}
+
 /* products grid */
 .products-grid {
   display: flex;
@@ -185,12 +194,17 @@ body {
 
 .product-card {
   flex: 0 1 calc(33.333% - 14px);
-  border: 1px solid #ccc;
   padding: 15px;
   border-radius: 4px;
   display: flex;
   gap: 15px;
   min-height: 160px;
+
+  border-width: 1px;
+  border-color: #ccc;
+  border-style: solid;
+
+  animation-duration: 50ms;
 }
 
 .product-card img {
@@ -201,11 +215,12 @@ body {
 }
 
 .product-card .product-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   min-height: 110px;
+
+  .add-item {
+    font-size: 36px;
+    margin-top: 8px;
+  }
 }
 
 .product-card h3 {
@@ -218,8 +233,63 @@ body {
   color: #666;
 }
 
+.product-card.viewing {
+  scale: 95%;
+}
+
 .product-card.selected {
-  scale: 90%;
+  border-color: var(--passionate-red);
+  border-width: 3px;
+}
+
+@keyframes selectAnim
+{
+  0%
+  {
+    border-color: #ccc;
+  }
+
+  100%
+  {
+    border-color: var(--passionate-red);
+  }
+}
+
+/* product information */
+#product-information {
+  display: flex;
+  flex: 0 1 calc(33.333% - 14px);
+  gap: 15px;
+  margin: 40px 0;
+  padding: 16px 32px 16px 16px;
+  border: 2px solid #000;
+  border-radius: 8px;
+
+  .product-info {
+    min-height: 110px;
+
+    .add-item {
+      font-size: 48px;
+      margin-top: 12px;
+    }
+  }
+
+  h2 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  img {
+    width: 380px;
+    height: 380px;
+    object-fit: contain;
+    flex-shrink: 0;
+    padding: 20px;
+  }
 }
 
 /* selected products */
@@ -239,6 +309,57 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.product-list-item {
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+  border: 1.5px solid #000;
+  padding: 8px 8px;
+
+  img {
+    width: 48px;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin-right: 8px;
+  }
+
+  .rem-item {
+    background-color: transparent;
+    width: 48px;
+    height: auto;
+    margin-left: 16px;
+
+    font-family: 'Material Symbols Outlined';
+    font-size: 36px;
+
+    border-radius: 8px;
+    border-color: #00000000;
+    border-style: solid;
+    border-width: 2px;
+    transition: border-color 250ms;
+  }
+
+  .rem-item:hover {
+    border-color: var(--eternal-gold);
+    transition: border-color 250ms;
+  }
+}
+
+.product-identifier {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  > .name {
+    font-weight: 400;
+  }
+
+  > .brand {
+    font-weight: 200;
+    font-style: italic;
+  }
 }
 
 .generate-btn {

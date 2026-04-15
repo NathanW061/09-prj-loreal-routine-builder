@@ -1,0 +1,120 @@
+/* Reused from Project 8 */
+
+:root {
+  --iconic-black: rgb(0, 0, 0);
+  --radiant-white: rgb(255, 255, 255);
+  --passionate-red: rgb(255, 0, 59);
+  --eternal-gold: rgb(227, 166, 53);
+}
+
+/* messages */
+.msg-entry {
+  height: fit-content;
+  margin-bottom: 8px;
+  
+  .msg-author {
+    font-size: 0.8em;
+    color: gray;
+
+    animation-name: authorEnter;
+    animation-duration: 0.5s;
+  }
+
+  .msg-bubble {
+    background-color: white;
+    border-radius: 5px;
+    padding: 4px 8px;
+    max-width: 75%;
+    width: fit-content;
+
+    font-size: 1.0em;
+
+    animation-timing-function: ease-out;
+    animation-duration: 0.25s;
+  }
+}
+
+.msg-entry.user {
+  text-align: right;
+  .msg-bubble {
+    transform-origin: top right;
+    margin-left: auto;
+    margin-right: 0;
+
+    color: var(--iconic-black);
+    animation-name: bubbleEnterRight;
+  }
+}
+
+.msg-entry.bot {
+  text-align: left;
+  .msg-bubble {
+    transform-origin: top left;
+    background-color: var(--passionate-red);
+    margin-left: 0;
+    margin-right: auto;
+
+    color: var(--radiant-white);
+    animation-name: bubbleEnterLeft;
+  }
+}
+
+.msg-entry.system {
+  text-align: left;
+  .msg-bubble {
+    transform-origin: top left;
+    background-color: var(--eternal-gold);
+    margin-left: 0;
+    margin-right: auto;
+
+    font-size: 1.0em;
+    color: var(--iconic-black);
+    animation-name: bubbleEnterLeft;
+  }
+
+  .msg-bubble.italic {
+    font-style: italic;
+  }
+}
+
+.msg-entry.hiding {
+  .msg-bubble {
+    animation-direction: reverse;
+    scale: 0%;
+  }
+  .msg-author {
+    animation-direction: reverse;
+    scale: 0%;
+  }
+}
+
+@keyframes bubbleEnterRight {
+  0% {
+    transform: translateX(20px);
+    scale: 0%;
+  }
+  100% {
+    transform: translateX(0px);
+    scale: 100%;
+  }
+}
+
+@keyframes bubbleEnterLeft {
+  0% {
+    transform: translateX(-20px);
+    scale: 0%;
+  }
+  100% {
+    transform: translateX(0px);
+    scale: 100%;
+  }
+}
+
+@keyframes authorEnter {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
