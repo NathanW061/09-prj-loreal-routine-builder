@@ -16,28 +16,28 @@ const appState = {
     return data.products;
   },
 
-  // Local Storage
-  selectionStorageKey: "selectedProducts",
-  saveSelectionState: function () {
-    localStorage.setItem(
-      this.selectionStorageKey,
-      JSON.stringify(this.selectedProducts),
-    );
-  },
-
-  loadSelectionState: function () {
-    const loadedSelection = localStorage.getItem(this.selectionStorageKey);
-    if (loadedSelection !== null) {
-      this.selectedProducts = JSON.parse(loadedSelection);
-
-      let ind = 0;
-      for (const productId in this.selectedProducts) {
-        if (ind < this.selectedProductOrder) {
-        }
-        ind++;
-      }
-    }
-  },
+  // Local Storage (canned, not enough time to implement)
+  //selectionStorageKey: "selectedProducts",
+  //saveSelectionState: function () {
+  //  localStorage.setItem(
+  //    this.selectionStorageKey,
+  //    JSON.stringify(this.selectedProducts),
+  //  );
+  //},
+//
+  //loadSelectionState: function () {
+  //  const loadedSelection = localStorage.getItem(this.selectionStorageKey);
+  //  if (loadedSelection !== null) {
+  //    this.selectedProducts = JSON.parse(loadedSelection);
+//
+  //    let ind = 0;
+  //    for (const productId in this.selectedProducts) {
+  //      if (ind < this.selectedProductOrder) {
+  //      }
+  //      ind++;
+  //    }
+  //  }
+  //},
 
   // Marks a product as selected and adds it to the selected product order
   selectProduct: function (id) {
