@@ -1,6 +1,7 @@
 /* Reused from Project 8 */
 
 :root {
+  /* L'Oréal Brand Colors */
   --iconic-black: rgb(0, 0, 0);
   --radiant-white: rgb(255, 255, 255);
   --passionate-red: rgb(255, 0, 59);
@@ -117,4 +118,25 @@
   100% {
     opacity: 100%;
   }
+}
+
+@media (min-aspect-ratio: 4/3) and (max-height: 500px)
+{
+  .chat-window {
+    height: 70vh;
+  }
+}
+
+@media (max-aspect-ratio: 3/4) and (max-width: 500px)
+{
+  .chat-window {
+    height: 55vh;
+    flex-grow: 1;
+  }
+
+  .msg-entry {
+    .msg-bubble {
+      max-width: 95%;
+    }
+  } 
 }

@@ -133,6 +133,11 @@ body {
   background: #666666;
 }
 
+.chat-form button:disabled {
+  background: #999999;
+  color: #000;
+}
+
 .chat-form button:focus {
   outline: 2px solid #000;
   outline-offset: 2px;
@@ -287,7 +292,7 @@ body {
     width: 380px;
     height: 380px;
     object-fit: contain;
-    flex-shrink: 0;
+    flex-shrink: 1;
     padding: 20px;
   }
 }
@@ -380,6 +385,60 @@ body {
   background: #666;
 }
 
+.generate-btn:disabled {
+  background: #999;
+  color: #000;
+}
+
 .generate-btn i {
   margin-right: 8px;
+}
+
+.msg-bubble > .product-list-item {
+  border: none;
+}
+
+@media (min-aspect-ratio: 4/3) and (max-height: 500px)
+{
+  .chatbox {
+    margin: 0;
+  }
+
+  .product-card {
+    flex: 1 1
+  }
+}
+
+@media (max-aspect-ratio: 3/4) and (max-width: 500px)
+{
+  .chatbox {
+    height: auto;
+    padding: 16px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .chat-form {
+    width: auto;
+    gap: 0px;
+  }
+
+  .chat-form input {
+    font-size: 16px;
+  }
+
+  .product-card {
+    flex-grow: 1;
+  }
+
+  #product-information {
+    padding: 16px;
+    flex-wrap: wrap;
+
+    img {
+      width: 100%;
+      padding: 0px 20px;
+    }
+  }
 }
